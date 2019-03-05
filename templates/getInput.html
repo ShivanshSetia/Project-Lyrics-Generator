@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Lyrics Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </head>
+  <body >
+   <div class="jumbotron">
+  <h1 class="display-4">Generate Lyrics Using ML</h1>
+  
+</div>
+
+    <div class="lyrics">
+      
+    </div>
+    <button type="button" class="btn btn-primary generate">Generate Lyrics</button> 
+    
+    
+    <button type="button" class="btn btn-primary">Text to speech</button> 
+    
+
+    <button type="button" class="btn btn-primary">Add Background Music</button> 
+
+
+
+  </body>
+  <script type="text/javascript">
+    
+    $(document).ready(function () {
+      
+     $('.generate').on('click',function(){
+  
+    $.get('/lyrics', function(data, status){
+     var a = document.getElementsByClassName('lyrics');
+    a.innerHTML= '<h3 class="text-white mt-4">This is a '+data+'</h3>';
+    console.log(data);
+  });
+     
+
+     });
+
+
+
+
+
+
+
+
+    }
+      
+      
+      ); 
+
+
+
+  </script>
+ 
+</html>
